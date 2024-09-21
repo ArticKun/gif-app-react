@@ -6,14 +6,23 @@ html {
 }
 
 *, *:before, *:after {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: rgb(234, 234, 234);
     box-sizing: inherit;
 }
   
   body {
+    background-color: rgb(46, 46, 46);
     margin: 0 auto;
     padding: auto;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  /* Truco para mantener footer abajo */
+  .container-body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
   }
 
   img{
@@ -35,26 +44,90 @@ html {
   
   h3 {
     font-size: 4rem;
-    margin: 0;
+    color: aliceblue;
     text-align: center;
+    margin: 0;
+    line-height: 3.5rem;
     text-transform: capitalize;
+  }
+  
+  /* Mensaje antes de busquedas */
+  .no-search{
+    margin-top: 3rem;
+    line-height: 4.5rem;
+    text-align: center;
+    font-size: 5rem;
+    
+  }
+
+
+  /* =========================  HEADER ========================= */
+
+  header {
+    display: flex;
+    justify-content: center;
+    background-color: #222222;
+  }
+
+  .container-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    padding: 3rem 0;
+    text-align: center;
+    color: aliceblue;
+    max-width: 120rem;
+    padding:0 2rem;
+    width: 100%;
+    height: 8rem;
+    gap: 2rem;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 3rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: aliceblue;
+      background-color: #222222;
+      margin: 0;
+      
+    }
+
+    span {
+      color: rgb(12, 184, 252);
+      background-color: #222222;
+    }
+  }
+
+  @media (width <= 550px) {
+    .logo span {
+      display: block;
+      line-height: 2rem;
+    }
   }
 
   .form {
+    max-width: 60rem;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
     gap: 1rem;
-    margin-bottom: 2rem;
+    background-color: #222222;
   }
 
   input {
     background-color: white;
     border-radius: 5px;
-    border: 1px solid rgb(97, 32, 158);
-    color: black;
+    border: 1px solid rgb(12, 184, 252);
+    color: rgb(255, 255, 255);
+    background-color: rgb(33, 33, 33);
     font-size: 1.2rem;
     outline: none;
     padding: 10px 15px;
@@ -62,60 +135,146 @@ html {
   }
 
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 5rem;
     border: none;
     border-radius: 0.5rem;
+    width: 7rem;
     color:  white;
-    background-color:rgb(141, 67, 210) ;
+    background-color:rgb(12, 184, 252) ;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover{
-      background-color:rgb(92, 31, 149) ;
+      background-color:rgb(27, 114, 213) ;
     }
+  }
+
+  /* =========================  THEME ========================= */
+
+  /* ICONOS */
+  .theme {
+    height: 2rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer;
+    margin-left: 3rem;
+  }
+
+  .theme svg {
+      width: 100%; /* Asegura que el SVG ocupe el 100% del contenedor */
+      height: auto; /* Ajusta automáticamente la altura */
+      display: block; /* Elimina el espacio extra */
+      margin: 0;
+      padding: 0;
+      background-color: #222222;
+  }
+
+  .light-theme {
+    background-color: rgb(228, 231, 238);
+  }
+
+  .light-theme  header,
+  .light-theme .container-header,
+  .light-theme .container-footer,
+  .light-theme  footer p,
+  .light-theme  footer span,
+  .light-theme  form,
+  .light-theme .theme svg,
+  .light-theme .logo p,
+  .light-theme .logo span {
+    background-color: rgb(12, 184, 252);
+  }
+
+
+  .light-theme .logo p {
+    color: #2532ab;
+  }
+
+  .light-theme .logo span {
+    color: rgb(228, 231, 238);
+  }
+
+  .light-theme  form input {
+    color: #767575;
+    background-color:rgb(228, 231, 238) ;
+    border: 1px solid #222222;
+  }
+
+  .light-theme form button {
+    background-color: #222222;
+  }
+
+  .light-theme footer span {
+    color: #222222;
+  }
+
+  .light-theme .no-search {
+    color: #222222;
+  }
+
+  .light-theme .category h3 {
+    color: #222222;
+  }
+
+   /* =========================  CARD ========================= */
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 120rem;
+    width: 100%;
+    margin: 2rem auto;
+    gap: 2rem;
+    text-align: center;
   }
 
   .category {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 2rem;
+    margin: 2rem  0;
+
+    h3 {
+      font-size: 3.5rem;
+    }
   }
 
   .close-category {
     padding: 1rem;
-    width: 5rem;
+    width: 10rem;
     height: 3rem;
     margin: 0;
     border-radius: 0.5rem;
     color: white;
     font-weight: bold;
     font-size: 2rem;
-    background-color: rgb(53, 51, 52);
+    background-color: rgb(220, 42, 89);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
   }
   
-  .container{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-  
+
   .card-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding-bottom: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    gap: 20px;
+    width: 80%;
   }
   
-  @media (width <= 550px) {
+  @media (width <= 769px) {
 
     .card-grid {
       display: grid;
@@ -124,6 +283,7 @@ html {
       align-items: center;
       align-self: center;
       gap: 1.5rem;
+      width: 100%;
     }
 
   }
@@ -131,11 +291,11 @@ html {
 .card {
   background: no-repeat center center;
   background-size: cover;
-  height: 25rem;
-  width: 20rem;
+  height: 20rem;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
-  justify-content: end;
+  align-items: flex-start;
+  justify-content: start;
   border-radius: 1rem;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.03);
   overflow: hidden; /* Asegura que la imagen no se desborde del contenedor */
@@ -151,27 +311,44 @@ html {
 
   .card {
     height: 20rem;
-    width: 15rem;
+    width: 100%;
   }
 
 }
 
-
 .card p {
-  flex: 1;
+  /* flex: 1; */
+  /* border-radius: 0 0 1rem 1rem; */
   font-size: 1.5rem;
+  font-weight: bold;
   text-align: center;
   margin: 0;
-  padding: 0.5rem 0;
-  border-radius: 0 0 1rem 1rem;
-  color: gray;
-  background-color: aliceblue;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  color: aliceblue;
+  background-color:rgb(12, 184, 252) ;
 }
 
-  
+.container-footer {
+  background-color: #222222;
+  padding: 3rem 0;
+  text-align: center;
+  color: aliceblue;
+  margin-top: 1rem;
+
+  p{
+    font-size: 1.5rem;
+    background-color: #222222;
+  }
+
+  span {
+    color: rgb(12, 184, 252);
+    background-color: #222222;
+  }
+}
 
 
-/*========== MODAL ========== */
+/*========================= MODAL ========================= */
 
 .overlay {
   display: flex;
@@ -192,8 +369,8 @@ html {
   align-items: center;
   gap: 2rem;
 
-  height: 45rem;
-  width: 40rem;
+  height: auto;
+  width: auto;
 
   background-color: white;
   padding: 20px;
@@ -220,4 +397,14 @@ html {
   font-size: 2rem;
   cursor: pointer;
   width: 50%;
+  background-color:rgb(12, 184, 252) 
+}
+
+.link-gif {
+  text-decoration: none;
+  color: rgb(12, 184, 252);
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: aliceblue;
+  cursor: pointer;
 }

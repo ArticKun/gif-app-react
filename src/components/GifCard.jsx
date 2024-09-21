@@ -35,7 +35,7 @@ export const GifCard = ( { title, url } ) => {
                 onClick={ onOpenModal }
                 style={{ backgroundImage: `url(${url})` }}
             >
-                <p>{title}</p>
+                <p>Click Me</p>
             </div>
 
             {
@@ -45,6 +45,13 @@ export const GifCard = ( { title, url } ) => {
                             <h2>{ selectedGif.title }</h2>
                             <img src={ selectedGif.url } alt={ selectedGif.title } />
                             <button className="close" onClick={ onCloseModal }>Close</button>
+                            <a 
+                                className='link-gif'
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                href={ selectedGif.url }>
+                                LINK
+                            </a>
                         </div>
                     </div>
                 ) : null

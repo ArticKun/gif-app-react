@@ -8,8 +8,6 @@ export const GifGrid = ( { category, deleteCategory } ) => {
 
     //⚡ Custom Hook
     const { images, isLoading } = useFetchGifs( category );
-    
-    const id = images.map( ele =>  ele.id )
 
     const deleteGif = () => {
         deleteCategory( category );
@@ -23,7 +21,7 @@ export const GifGrid = ( { category, deleteCategory } ) => {
                 <p 
                     onClick={ deleteGif }
                     className="close-category">
-                    X
+                    Close
                 </p>
             </div>
 
